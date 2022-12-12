@@ -1,12 +1,12 @@
 package ie.atu;
 
-import javax.naming.InvalidNameException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class exam {
 
     private String name;
-    private int transponderid;
+    private long transponderid;
     private String type;
 
     public static void main(String[] args) {
@@ -24,13 +24,17 @@ public class exam {
             System.out.println("you entered:" + store.getName());
         }
 
+        try {
+            System.out.println("Please enter Transponder Id");
+            long transponderid  = input.nextLong();
+            store.setTransponderid(transponderid);
+            System.out.println("you entered:" + store.getTransponderid());
+        }
+        catch (InputMismatchException e){
+            System.out.println("error recieved");
+        }
 
-        System.out.println("Please enter Transponder Id");
-        int transponderid  = input.nextInt();
-        store.setTransponderid(transponderid);
-        System.out.println("you entered:" + store.getTransponderid());
-
-        /*  int length = String.valueOf(transponderid).length();
+          /*int length = String.valueOf(transponderid).length();
         if (length = 11)
         {
             System.out.println("you entered:" + store.getTransponderid());
@@ -38,7 +42,7 @@ public class exam {
         else {
             length = String.valueOf(transponderid).length();
             System.out.println("invalid transponder id");
-        }*/
+        }//*/
 
 
         System.out.println("Please enter Trawler type");
